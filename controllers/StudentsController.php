@@ -67,7 +67,16 @@ require_once "entities\Student.php";
 
             $db_connection = mysqli_connect("localhost", "root", "", "database");
             $query = mysqli_query($db_connection,
-                "SELECT * FROM `database`.students WHERE id = '{$_GET['student_id']}'");
+                "
+                        SELECT 
+                            students.id,
+                            students.name,
+                            students.surname,
+                            users.email
+                                FROM `database`.students 
+                                    JOIN `database`.users 
+                                    ON `database`.users.`id` = `database`.students.`user_id`
+                                    WHERE `database`.students.`id` = '{$_GET['student_id']}'");
             $student = mysqli_fetch_assoc($query);
             include("templates/student/edit.php");
         }
