@@ -1,0 +1,16 @@
+{
+    "name": "wo.kucharczyk/dziennik",
+    "autoload": {
+        "psr-4": {
+            "App\\Dziennik\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wojciech Kucharczyk"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.9"
+    }
+}
